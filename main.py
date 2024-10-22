@@ -66,7 +66,7 @@ elif image_URL:
 if image is not None:
     # Добавляем слайдер, максимальное значение которого равно ширине изображения
     max_components = image.shape[0]  # Ширина изображения
-    top_k = st.slider(f"Сколько вы в месяц тратите часов в играх?\n(кол-во компонентов)", min_value=1, max_value=max_components, value=10)
+    top_k = st.slider(f"Сколько чаосв в месяц вы не проводите в играх?\n(кол-во компонентов)", min_value=1, max_value=max_components, value=10)
 
     # Выполняем SVD
     trunc_U, trunc_sigma, trunc_V, sing_vals = perform_SVD(image, top_k)
