@@ -66,7 +66,7 @@ elif image_URL:
 if image is not None:
     # Добавляем слайдер, максимальное значение которого равно ширине изображения
     max_components = image.shape[0]  # Ширина изображения
-    top_k = st.slider(f"Сколько чаосв в месяц вы не проводите в играх?\n(кол-во компонентов)", min_value=1, max_value=max_components, value=10)
+    top_k = st.slider(f"Сколько часов в месяц вы не проводите в играх?\n(кол-во компонентов)", min_value=1, max_value=max_components, value=10)
 
     # Выполняем SVD
     trunc_U, trunc_sigma, trunc_V, sing_vals = perform_SVD(image, top_k)
@@ -81,7 +81,7 @@ if image is not None:
     axes[0].axis('off')  # Отключаем оси для чистоты отображения
 
     axes[1].imshow(trunc_U @ trunc_sigma @ trunc_V, cmap='gray')
-    axes[1].set_title(f'Как вы будете видеть этот мир! Если тратить по {max_components-top_k} часов в месяц!\nВосстановленное изображение с {top_k} компонентами')
+    axes[1].set_title(f'Как вы будете видеть этот мир! Если тратить по {max_components-top_k} часов в месяц играя в игры!\nВосстановленное изображение с {top_k} компонентами')
     axes[1].axis('off')  # Отключаем оси для чистоты отображения
 
     # Отображение графика
